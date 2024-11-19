@@ -1,14 +1,14 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "usuarios_db";
+$host = "smartapp.com.co";
+$port = 3306;
+$username = "techwor2_cayo";
+$password = "Cayo;13934";
+$database = "techwor2_cayo";
 
-// Crear la conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($host, $username, $password, $database, $port);
 
 // Verificar la conexión
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+    die("Error al conectar a la base de datos: " . $conn->connect_error);
 }
 ?>
