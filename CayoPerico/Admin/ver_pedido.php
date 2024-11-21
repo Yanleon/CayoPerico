@@ -2,8 +2,6 @@
 session_start();
 include '../conexion.php';
 include_once "../Admin/encabezado.php";
-include 'auth.php';
-include 'logger.php';
 
 // Verificar que se recibió el ID del cliente
 if (!isset($_GET['cliente_id'])) {
@@ -11,7 +9,7 @@ if (!isset($_GET['cliente_id'])) {
     exit();
 }
 
-$cliente_id = $_GET['cliente_id'];
+$cliente_id = intval($_GET['cliente_id']);
 
 // Obtener las fechas únicas de pedidos del cliente
 $sql_fechas = "SELECT DISTINCT fecha_pedido 
@@ -118,7 +116,7 @@ $result_fechas = $stmt_fechas->get_result();
                 }
                 echo '<tr>
                         <td colspan="2"><strong>Total</strong></td>
-                        <td colspan="2">$' . number_format($total, 2) . '</td>
+                        <td colspan="2">$' . number_format($total, ) . '</td>
                       </tr>';
             } else {
                 echo '<tr><td colspan="4">No hay pedidos para esta fecha.</td></tr>';
@@ -138,3 +136,5 @@ $result_fechas = $stmt_fechas->get_result();
     </div>
 </body>
 </html>
+
+
